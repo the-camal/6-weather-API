@@ -11,8 +11,6 @@ const app = {
     
       let city = document.getElementById('latitude').value;
       let lon = document.getElementById('longitude').value;
-      let lang = 'en';
-      let units = 'metric';
       let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=e6c076735760bd653450048e434969f9&units=imperial`;
 
 
@@ -44,13 +42,13 @@ const app = {
       wtf: (err) => {
         console.error(err);
       },
-      // this is going to be my time stamps
+      // this is going to be my links and icons for the weather
       showWeather: (resp) => {
         console.log(resp);
         let town = document.querySelector('.weather.row');
         document.querySelector('.temp') .innerText= "temp, "+resp.main.temp
         document.querySelector('.city') .innerText= "city, "+resp.name
-        document.querySelector('.werathericon') .src= `http://openweathermap.org/img/wn/${resp.weather[0].icon}@4x.png`
+        document.querySelector('.weathericon') .src= `http://openweathermap.org/img/wn/${resp.weather[0].icon}@4x.png`
         document.querySelector('.wind') .innerText= 'windspeed, '+resp.wind.speed
         document.querySelector('humidity') .innerText= 'humidity'+resp.humidity
         
