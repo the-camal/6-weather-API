@@ -52,6 +52,7 @@ const app = {
         document.querySelector('.city') .innerText= "city, "+resp.name
         document.querySelector('.werathericon') .src= `http://openweathermap.org/img/wn/${resp.weather[0].icon}@4x.png`
         document.querySelector('.wind') .innerText= 'windspeed, '+resp.wind.speed
+        document.querySelector('humidity') .innerText= 'humidity'+resp.humidity
         
         //  town.innerHTML = resp.daily
       //    .map((day, idx) => {
