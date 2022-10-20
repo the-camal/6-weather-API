@@ -1,7 +1,7 @@
 const app = {
     init: () => {
       document
-        .getElementById('btnGet')
+        .getElementById('btndaily')
         .addEventListener('click', app.fetchWeather);
       document
         .getElementById('btnCurrent')
@@ -10,8 +10,8 @@ const app = {
     // this is going to get the info from openweather app and my html
     fetchWeather: (ev) => {
     
-      let city = document.getElementById('latitude').value;
-      let lon = document.getElementById('longitude').value;
+      let city = document.getElementById('length').value;
+      let lon = document.getElementById('distance').value;
       let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=e6c076735760bd653450048e434969f9&units=imperial`;
 
 
@@ -32,15 +32,15 @@ const app = {
           timeout: 1000 * 10,
           maximumAge: 1000 * 60 * 5,
         };
-        navigator.geolocation.getCurrentPosition(app.ftw, app.wtf, opts);
+        navigator.geolocation.getCurrentPosition(app.ttd, app.llc, opts);
       },
-      ftw: (position) => {
-        document.getElementById('latitude').value =
-          position.coords.latitude.toFixed(2);
-        document.getElementById('longitude').value =
-          position.coords.longitude.toFixed(2);
+      ttd: (position) => {
+        document.getElementById('length').value =
+          position.coords.length.toFixed(2);
+        document.getElementById('distance').value =
+          position.coords.distance.toFixed(2);
       },
-      wtf: (err) => {
+      llc: (err) => {
         console.error(err);
       },
       // this is going to be my links and icons for the weather
